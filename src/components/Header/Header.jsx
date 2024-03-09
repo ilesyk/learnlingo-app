@@ -12,15 +12,13 @@ import Logo from '../../images/logo.svg';
 import LogIn from '../../images/log-in-01.svg';
 import { useState } from 'react';
 import { LoginModal } from 'components/Modal/AuthModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, selectUserEmail } from '../../redux/selectors';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/selectors';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalType, setModalType] = useState('');
-  const dispatch = useDispatch();
   const authUser = useSelector(selectUser);
-  const userEmail = useSelector(selectUserEmail);
   const handleOpen = type => {
     setModalType(type);
     setIsOpen(true);

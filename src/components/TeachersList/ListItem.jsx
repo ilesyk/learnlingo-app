@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addToFavorites,
@@ -15,7 +14,6 @@ import {
   TeacherName,
   TeacherOnline,
   TeacherRating,
-  TeachersLanguages,
 } from './ListItem.styled';
 import { FaRegHeart } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa6';
