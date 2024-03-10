@@ -43,11 +43,11 @@ export const AuthForm = ({ handleClose, type }) => {
   const handleRegisterSubmit = ({ name, email, password } ,  {resetForm}) => {
      createUserWithEmailAndPassword(auth, email, password)
          .then(({ user }) => {
-           updateProfile(user, { displayName: name }); toast.success('You are registered!');
+           updateProfile(user, { displayName: name }); toast.success('You are succesfully registered!');
            resetForm();
          handleClose()
          })
-       .catch(e => { console.log(e); toast.error(`Something went wrong, ${e}`);});
+       .catch(e => { console.log(e); toast.error(`Something was wrong`);});
    };
 
   const handleTogglePassword = () => {

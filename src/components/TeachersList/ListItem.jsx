@@ -3,7 +3,7 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from '../../redux/favoritesSlice';
-import { selectFavorites } from '../../redux/selectors';
+import { selectFavorites, selectUser } from '../../redux/selectors';
 import {
   FavoriteButton,
   TeacherAvatar,
@@ -20,13 +20,14 @@ import { FaHeart } from 'react-icons/fa6';
 import { IoBookOutline } from 'react-icons/io5';
 import { IoStar } from 'react-icons/io5';
 import { TeacherReadMore } from './TeacherReadMore';
+import toast from 'react-hot-toast';
 
 export const ListItem = ({ teachers, limit  }) => {
   const favoriteTeachers = useSelector(selectFavorites);
   const dispatch = useDispatch();
-
-  const handleAddToFavorites = teacher => {
-    dispatch(addToFavorites(teacher));
+const authUser = useSelector(selectUser);
+    const handleAddToFavorites = teacher => {
+        authUser ? dispatch(addToFavorites(teacher)) : toast.error("Please log in to add to favorites");
     };
     
   const handleRemoveFromFavorites = teacher => {
