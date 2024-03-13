@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/learnlingo-app/static/css/main.4cd908ec.css",
-    "main.js": "/learnlingo-app/static/js/main.f429261c.js",
-    "static/js/470.052f9e63.chunk.js": "/learnlingo-app/static/js/470.052f9e63.chunk.js",
+    "main.js": "/learnlingo-app/static/js/main.1730b7c9.js",
+    "static/js/470.571f2064.chunk.js": "/learnlingo-app/static/js/470.571f2064.chunk.js",
     "static/js/6.436a83ab.chunk.js": "/learnlingo-app/static/js/6.436a83ab.chunk.js",
     "static/media/home_img.jpg": "/learnlingo-app/static/media/home_img.5c557c65beba49abcded.jpg",
     "static/media/log-in-01.svg": "/learnlingo-app/static/media/log-in-01.8960047243821faa182cb41aaf96b5f5.svg",
     "index.html": "/learnlingo-app/index.html",
     "static/media/logo.svg": "/learnlingo-app/static/media/logo.d34743a6d4214a7edfd037c74ed2da93.svg",
     "main.4cd908ec.css.map": "/learnlingo-app/static/css/main.4cd908ec.css.map",
-    "main.f429261c.js.map": "/learnlingo-app/static/js/main.f429261c.js.map",
-    "470.052f9e63.chunk.js.map": "/learnlingo-app/static/js/470.052f9e63.chunk.js.map",
+    "main.1730b7c9.js.map": "/learnlingo-app/static/js/main.1730b7c9.js.map",
+    "470.571f2064.chunk.js.map": "/learnlingo-app/static/js/470.571f2064.chunk.js.map",
     "6.436a83ab.chunk.js.map": "/learnlingo-app/static/js/6.436a83ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4cd908ec.css",
-    "static/js/main.f429261c.js"
+    "static/js/main.1730b7c9.js"
   ]
 }
