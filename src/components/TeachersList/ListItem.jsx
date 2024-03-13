@@ -14,6 +14,7 @@ import {
   TeacherName,
   TeacherOnline,
   TeacherRating,
+  TeacherRatingWrap,
 } from './ListItem.styled';
 import { FaRegHeart } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa6';
@@ -48,100 +49,105 @@ const authUser = useSelector(selectUser);
       {teachers &&
         teachers.slice(0, limit).map((teacher, i) => {
           return (
-            <TeacherItemWrap key={i}>
-              {isInFavorite(teacher) ? (
-                <FavoriteButton
-                  onClick={() => {
-                    handleRemoveFromFavorites(teacher);
-                  }}
-                >
-                  <FaHeart size={26} color={'#F4C550'} />
-                </FavoriteButton>
-              ) : (
-                <FavoriteButton
-                  onClick={() => {
-                    handleAddToFavorites(teacher);
-                  }}
-                >
-                  <FaRegHeart size={26} />
-                </FavoriteButton>
-              )}
-              <TeacherAvatarWrap>
-                <TeacherAvatar
-                  style={{
-                    backgroundSize: 'cover',
-                    backgroundImage: `url(${teacher.avatar_url})`,
-                  }}
-                />
-                <TeacherOnline />
-              </TeacherAvatarWrap>
-              <div>
-                <div
-                  style={{
-                    display: 'flex',
-                  }}
-                >
-                  <TeacherHeaders
-                    style={{ marginBottom: '8px', marginRight: '102px' }}
+            <li key={i}>
+              <TeacherItemWrap>
+                {isInFavorite(teacher) ? (
+                  <FavoriteButton
+                    onClick={() => {
+                      handleRemoveFromFavorites(teacher);
+                    }}
                   >
-                    Languages
-                  </TeacherHeaders>{' '}
-                  <div style={{ display: 'flex', gap: '32px' }}>
-                    <TeacherRating>
-                      <IoBookOutline style={{ marginRight: '8px' }} size={16} />
-                      Lessons online
-                    </TeacherRating>
-                    <TeacherRating>
-                      Lessons done: {teacher.lessons_done}
-                    </TeacherRating>
-                    <TeacherRating>
-                      <IoStar
-                        style={{ marginRight: '8px' }}
-                        size={16}
-                        color={'#FFC531'}
-                      />
-                      Rating: {teacher.rating}
-                    </TeacherRating>
-                    <TeacherRating>
-                      Price / 1 hour:{' '}
-                      <span style={{ color: '#38CD3E' }}>
-                        {teacher.price_per_hour}$
-                      </span>
-                    </TeacherRating>
-                  </div>
+                    <FaHeart size={26} color={'#F4C550'} />
+                  </FavoriteButton>
+                ) : (
+                  <FavoriteButton
+                    onClick={() => {
+                      handleAddToFavorites(teacher);
+                    }}
+                  >
+                    <FaRegHeart size={26} />
+                  </FavoriteButton>
+                )}
+                <TeacherAvatarWrap>
+                  <TeacherAvatar
+                    style={{
+                      backgroundSize: 'cover',
+                      backgroundImage: `url(${teacher.avatar_url})`,
+                    }}
+                  />
+                  <TeacherOnline />
+                </TeacherAvatarWrap>
+                <div>
+                  <TeacherRatingWrap
+                  >
+                    <TeacherHeaders>Languages</TeacherHeaders>{' '}
+                    <ul
+                      style={{
+                        display: 'flex',
+                        gap: '12px 32px',
+                        flexWrap: "wrap",
+                        justifyContent: "flex-end"
+                      }}
+                    >
+                      <TeacherRating>
+                        <IoBookOutline
+                          style={{ marginRight: '8px' }}
+                          size={16}
+                        />
+                        Lessons online
+                      </TeacherRating>
+                      <TeacherRating>
+                        Lessons done: {teacher.lessons_done}
+                      </TeacherRating>
+                      <TeacherRating>
+                        <IoStar
+                          style={{ marginRight: '8px' }}
+                          size={16}
+                          color={'#FFC531'}
+                        />
+                        Rating: {teacher.rating}
+                      </TeacherRating>
+                      <TeacherRating>
+                        Price / 1 hour:{' '}
+                        <span style={{ color: '#38CD3E' }}>
+                          {teacher.price_per_hour}$
+                        </span>
+                      </TeacherRating>
+                    </ul>
+                  </TeacherRatingWrap>
+                  <TeacherName>
+                    {teacher.name} {teacher.surname}
+                  </TeacherName>
+                  <ul>
+                    <li style={{ marginBottom: '8px' }}>
+                      <TeacherHeaders>
+                        Speaks:{' '}
+                        <TeacherDescription>
+                          {teacher.languages.join(',')}
+                        </TeacherDescription>
+                      </TeacherHeaders>
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <TeacherHeaders>
+                        Lesson Info:{' '}
+                        <TeacherDescription>
+                          {teacher.lesson_info}
+                        </TeacherDescription>
+                      </TeacherHeaders>
+                    </li>
+                    <li style={{ marginBottom: '16px' }}>
+                      <TeacherHeaders>
+                        Conditions:{' '}
+                        <TeacherDescription>
+                          {teacher.conditions.join(' ')}
+                        </TeacherDescription>
+                      </TeacherHeaders>
+                    </li>
+                  </ul>
+                  <TeacherReadMore teacher={teacher}></TeacherReadMore>
                 </div>
-                <TeacherName>
-                  {teacher.name} {teacher.surname}
-                </TeacherName>
-                <ul>
-                  <li style={{ marginBottom: '8px' }}>
-                    <TeacherHeaders>
-                      Speaks:{' '}
-                      <TeacherDescription>
-                        {teacher.languages.join(',')}
-                      </TeacherDescription>
-                    </TeacherHeaders>
-                  </li>
-                  <li style={{ marginBottom: '8px' }}>
-                    <TeacherHeaders>
-                      Lesson Info:{' '}
-                      <TeacherDescription>
-                        {teacher.lesson_info}
-                      </TeacherDescription>
-                    </TeacherHeaders>
-                  </li>
-                  <li style={{ marginBottom: '16px' }}>
-                    <TeacherHeaders>
-                      Conditions:{' '}
-                      <TeacherDescription>
-                        {teacher.conditions.join(' ')}
-                      </TeacherDescription>
-                    </TeacherHeaders>
-                  </li>
-                </ul>
-                <TeacherReadMore teacher={teacher}></TeacherReadMore>
-              </div>
-            </TeacherItemWrap>
+              </TeacherItemWrap>
+            </li>
           );
         })}
     </>

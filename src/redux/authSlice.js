@@ -5,14 +5,20 @@ export const authSlice = createSlice({
   initialState: {
     isAuthenticated: false,
     userEmail: null,
+    userName: null,
   },
   reducers: {
     setAuthenticated: (state, action) => {
-      state.isAuthenticated = true;
-      state.userEmail = action.payload;
+          state.isAuthenticated = true;
+          state.userEmail = action.payload.email;
+          state.userName = action.payload.displayName;
+    },
+    clearAuthenticated: state => {
+      state.isAuthenticated = false;
+      state.userEmail = null;
     },
   },
 });
 
-export const { setAuthenticated } = authSlice.actions;
+export const { setAuthenticated, clearAuthenticated } = authSlice.actions;
 export const authReducer = authSlice.reducer;

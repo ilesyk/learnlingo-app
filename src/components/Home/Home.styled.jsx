@@ -1,21 +1,29 @@
 import styled from "styled-components";
 
 export const HomePageWrap = styled.div`
-display: flex;
-gap: 24px;
-margin-bottom: 24px;
-max-width: 1312px;
+  display: flex;
+  gap: 24px;
+  max-width: 1312px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 24px;
+  @media (min-width: 750px) {
+    flex-wrap: nowrap;
+  }
 `;
 export const HomePageDescription = styled.div`
   border-radius: 30px;
   background: rgb(248, 248, 248);
-  padding: 98px 64px;
+padding: 32px;
   max-width: 720px;
   display: flex;
   flex-direction: column;
   gap: 32px;
   align-items: flex-start;
   justify-content: space-between;
+  @media (min-width: 750px) {
+    padding: 98px 64px;
+  }
   & :last-child {
     margin-top: 16px;
   }
@@ -47,6 +55,10 @@ export const GetStartedButton = styled.button`
   outline: none;
   border: transparent;
   cursor: pointer;
+  &:is(:hover, :focus) {
+    background-color: #ffdc86;
+  }
+  transition: background-color 200ms linear;
 `;
 
 export const HomePageImage = styled.div`
@@ -56,10 +68,14 @@ max-width: 568px;
 export const HomePageDetailsWrap = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1312px;
+  margin: 0 auto;
+  gap: 20px 100px;
   border: 1.5px dashed rgb(244, 197, 80);
   border-radius: 30px;
-  padding: 20px 122px;
+  padding: 40px;
   border-spacing: 30px;
 `;
 
@@ -69,8 +85,6 @@ export const HomePageDetailsNumber = styled.p`
   font-size: 28px;
   font-weight: 500;
   line-height: 1.14;
-  letter-spacing: -2%;
-  text-align: left;
 `;
 export const HomePageDetailsText = styled.p`
   color: rgba(18, 20, 23, 0.7);
@@ -78,7 +92,5 @@ export const HomePageDetailsText = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
-  letter-spacing: -2%;
-  text-align: left;
   max-width: 96px;
 `;

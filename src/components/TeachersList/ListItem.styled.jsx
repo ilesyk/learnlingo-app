@@ -7,7 +7,13 @@ export const TeacherItemWrap = styled.div`
   border: 1px solid rgba(18, 20, 23, 0.1);
   position: relative;
   display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1184px;
   gap: 48px;
+  @media (min-width: 600px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const TeacherAvatarWrap = styled.div`
@@ -16,7 +22,7 @@ export const TeacherAvatarWrap = styled.div`
   border: 3px solid rgb(251, 233, 186);
   border-radius: 100px;
   background: rgb(255, 255, 255);
-  padding: 12px;
+  padding: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -36,15 +42,35 @@ export const TeacherOnline = styled.div`
   border-radius: 100px;
   background-color: #38cd3e;
   position: absolute;
-  top: 18px;
-  right: 22px;
+  top: 16px;
+  right: 20px;
 `;
-
-export const TeacherRating = styled.p`
+export const TeacherRatingWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  justify-content: space-between;
+  margin-right: 10px;
+  @media (min-width: 600px) {
+    flex-wrap: nowrap;
+    margin-right: 44px;
+  }
+`;
+export const TeacherRating = styled.li`
   color: rgb(18, 20, 23);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+  position: relative;
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: -10px;
+    width: 1px;
+    height: 16px;
+    background-color: rgba(18, 20, 23, 0.2);
+  }
 `;
 
 export const TeacherHeaders = styled.p`
@@ -58,7 +84,7 @@ export const TeacherName = styled.h2`
   font-size: 24px;
   font-weight: 500;
   line-height: 1;
-  margin-bottom: 32px;
+  margin: 8px 0 32px;
 `;
 
 export const TeacherDescription = styled.span`
@@ -68,23 +94,16 @@ export const TeacherDescription = styled.span`
   color: #121417;
 `;
 
-export const TeacherConditions = styled.p`
-  position: relative;
-  &:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -6px;
-    width: 1px;
-    height: 16px;
-    background-color: rgba(18, 20, 23, 0.2);
-  }
-`;
+export const TeacherConditions = styled.p``;
 
-export const TeachersLanguages = styled.p`
+export const TeachersLanguages = styled.li`
   padding: 8px 12px;
   border: 1px solid rgba(18, 20, 23, 0.2);
   border-radius: 35px;
+  &:first-child {
+    background-color: rgb(244, 197, 80);
+    border: transparent;
+  }
 `;
 
 export const FavoriteButton = styled.button`
@@ -110,11 +129,13 @@ export const ReadMoreButton = styled.button`
   background: none;
   border: none;
   outline: none;
+  &:hover {
+    color: rgb(244, 197, 80);
+  }
+  transition: color 200ms linear;
 `;
 
-export const TeacherReviewWrap = styled.div`
-    
-`
+export const TeacherReviewWrap = styled.div``;
 
 // export const TeacherReviewAvatar = styled.div`
 //   width: 44px;

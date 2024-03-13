@@ -77,83 +77,89 @@ export const SearchBar = () => {
   };
 
   return (
-    <Formik initialValues={filterValues}>
-      {() => (
-        <StyledForm>
-          <Label>
-            Languages
-            <StyledField
-              className="language"
-              name="language"
-              as="select"
-              onChange={handleLanguageChange}
-              value={filterValues.language}
-            >
-              {languages.map((language, i) => {
-                return (
-                  <option key={i} value={language}>
-                    {language}
-                  </option>
-                );
-              })}
-            </StyledField>
-            <IoChevronDownOutline
-              style={{ position: 'absolute', top: '40px', right: '14px' }}
-              size={20}
-              color={'#121417'}
-            />
-          </Label>
-          <Label>
-            Level of knowledge
-            <StyledField
-              className="level"
-              name="level"
-              as="select"
-              onChange={handleLevelChange}
-              value={filterValues.level}
-            >
-              {levels.map((level, i) => {
-                return (
-                  <option key={i} value={level}>
-                    {level}
-                  </option>
-                );
-              })}
-            </StyledField>
-            <IoChevronDownOutline
-              style={{ position: 'absolute', top: '40px', right: '14px' }}
-              size={20}
-              color={"#121417"}
-            />
-          </Label>
-          <Label>
-            Price
-            <StyledField
-              className="price"
-              name="price"
-              as="select"
-              onChange={handlePriceChange}
-              value={filterValues.price}
-            >
-              {prices.map((price, i) => {
-                return (
-                  <option key={i} value={price}>
-                    {price}
-                  </option>
-                );
-              })}
-            </StyledField>
-            <IoChevronDownOutline
-              style={{ position: 'absolute', top: '40px', right: '14px' }}
-              size={20}
-              color={'#121417'}
-            />
-          </Label>
-          <FilterResetButton type="button" onClick={handleReset}>
-            Reset
-          </FilterResetButton>
-        </StyledForm>
-      )}
-    </Formik>
+    <div style={{ margin: '0 auto', maxWidth: '1184px' }}>
+      <Formik initialValues={filterValues}>
+        {() => (
+          <StyledForm>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: "wrap" }}>
+              <Label>
+                Languages
+                <StyledField
+                  className="language"
+                  name="language"
+                  as="select"
+                  onChange={handleLanguageChange}
+                  value={filterValues.language}
+                >
+                  {languages.map((language, i) => {
+                    return (
+                      <option key={i} value={language}>
+                        {language}
+                      </option>
+                    );
+                  })}
+                </StyledField>
+                <IoChevronDownOutline
+                  style={{ position: 'absolute', top: '40px', right: '14px' }}
+                  size={20}
+                  color={'#121417'}
+                />
+              </Label>
+              <Label>
+                Level of knowledge
+                <StyledField
+                  className="level"
+                  name="level"
+                  as="select"
+                  onChange={handleLevelChange}
+                  value={filterValues.level}
+                >
+                  {levels.map((level, i) => {
+                    return (
+                      <option key={i} value={level}>
+                        {level}
+                      </option>
+                    );
+                  })}
+                </StyledField>
+                <IoChevronDownOutline
+                  style={{ position: 'absolute', top: '40px', right: '14px' }}
+                  size={20}
+                  color={'#121417'}
+                />
+              </Label>
+            </div>
+            <div style={{ display: 'flex', gap: '20px' }}>
+              <Label>
+                Price
+                <StyledField
+                  className="price"
+                  name="price"
+                  as="select"
+                  onChange={handlePriceChange}
+                  value={filterValues.price}
+                >
+                  {prices.map((price, i) => {
+                    return (
+                      <option key={i} value={price}>
+                        {price}
+                      </option>
+                    );
+                  })}
+                </StyledField>
+                <IoChevronDownOutline
+                  style={{ position: 'absolute', top: '40px', right: '14px' }}
+                  size={20}
+                  color={'#121417'}
+                />
+              </Label>
+              <FilterResetButton type="button" onClick={handleReset}>
+                Reset
+              </FilterResetButton>
+            </div>
+          </StyledForm>
+        )}
+      </Formik>
+    </div>
   );
 };

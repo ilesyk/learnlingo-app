@@ -14,12 +14,21 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div style={{ padding: '20px 64px' }}>
+    <div style={{ padding: "0 20px" }}>
       <HomePageWrap>
         <HomePageDescription>
           <HomePageHead>
-            Unlock your potential with the best <i style={{borderRadius: "8px",
-background:" rgb(251, 233, 186)", fontWeight: "400"}}>language</i> tutors
+            Unlock your potential with the best{' '}
+            <i
+              style={{
+                borderRadius: '8px',
+                background: ' rgb(251, 233, 186)',
+                fontWeight: '400',
+              }}
+            >
+              language
+            </i>{' '}
+            tutors
           </HomePageHead>
           <HomePageText>
             Embark on an Exciting Language Journey with Expert Language Tutors:

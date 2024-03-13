@@ -18,14 +18,12 @@ const Teachers = ({isFavorite}) => {
   }, [dispatch]);
 
   return (
-    <>
-      {!isFavorite && (<SearchBar />)}
+    <div style={{ backgroundColor: '#F8F8F8', padding: "30px 20px 96px" }}>
+      {!isFavorite && <SearchBar />}
       {isLoading && <Loader />}
       {error && toast.error('Something was wrong :(')}
-      <TeachersList
-        isFavorite={isFavorite}
-      />
-    </>
+      <TeachersList isFavorite={isFavorite} />
+    </div>
   );
 };
 

@@ -30,17 +30,19 @@ const validationSchema = Yup.object({
 export const AuthForm = ({ handleClose, type }) => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const handleLogInSubmit = ({ email, password }, { resetForm }) => {
+
+  const handleLogIn = ({ email, password }, { resetForm }) => {
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        dispatch(setAuthenticated(email));
+      .then(({user}) => {
+        dispatch(setAuthenticated({ email, displayName: user.displayName }));
         toast.success(`You are succesfully logged in!`);
         resetForm();
         handleClose();
       })
       .catch(e => toast.error(`Something was wrong`));
   };
-  const handleRegisterSubmit = ({ name, email, password } ,  {resetForm}) => {
+
+  const handleRegister = ({ name, email, password } ,  {resetForm}) => {
      createUserWithEmailAndPassword(auth, email, password)
          .then(({ user }) => {
            updateProfile(user, { displayName: name }); toast.success('You are succesfully registered!');
@@ -71,7 +73,7 @@ export const AuthForm = ({ handleClose, type }) => {
         }}
         validationSchema={validationSchema}
         onSubmit={
-          type === 'register' ? handleRegisterSubmit : handleLogInSubmit
+          type === 'register' ? handleRegister : handleLogIn
         }
       >
         <Form>

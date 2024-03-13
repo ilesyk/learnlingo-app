@@ -47,7 +47,7 @@ export const StyledField = styled(Field).attrs(props => ({
   }
 
   option {
-    color: ${theme.colors.secondaryText};
+    color: #8a8a89;
   }
 `;
 
@@ -63,8 +63,8 @@ export const FilterResetButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.11;
-  transition: color ${theme.transition};
   &:hover {
-    color: #f4c550;
+    color: rgb(244, 197, 80);
   }
+  transition: color 200ms linear;
 `;

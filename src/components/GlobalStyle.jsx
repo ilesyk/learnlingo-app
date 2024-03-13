@@ -46,12 +46,14 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
   }
 
   button {
     font-family: inherit;
     padding: 0;
     margin: 0;
+    cursor: pointer;
   }
 
   ::-webkit-scrollbar {

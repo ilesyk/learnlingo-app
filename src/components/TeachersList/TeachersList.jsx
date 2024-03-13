@@ -55,7 +55,7 @@ export const TeachersList = ({ isFavorite }) => {
         <Loader />
       ) : (
         teachersLimit  <
-          (filteredTeachers.length ? filteredTeachers.length : teachers.length) &&
+          (isFavorite ? favoriteTeachers.length :(filteredTeachers.length ? filteredTeachers.length : teachers.length)) &&
          (<LoadMoreButton onClick={loadMoreTeachers}>Load more</LoadMoreButton>)
       )}
     </>

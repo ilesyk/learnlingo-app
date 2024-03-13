@@ -30,16 +30,16 @@ export const TeacherReadMore = ({ teacher }) => {
     <>
       {!isReadMore ? (<>
               <ReadMoreButton onClick={handleOpenDetails}>Read more</ReadMoreButton>
-              <div style={{ display: 'flex', gap: '8px' }}>
+              <ul style={{ display: 'flex', flexWrap: "wrap", gap: '8px' }}>
                   {teacher.levels.map((level, i) => {
                     return (
                       <TeachersLanguages key={i}>{level}</TeachersLanguages>
                     );
                   })}
-                </div></>
+                </ul></>
       ) : (
         <div>
-          <p style={{ marginBottom: '32px' }}>{teacher.experience}</p>
+          <p style={{maxWidth: "968px", marginBottom: '32px' }}>{teacher.experience}</p>
           {teacher.reviews.map((review, i) => {
             return (
               <TeacherReviewWrap key={i} style={{ marginBottom: '32px' }}>
@@ -54,14 +54,14 @@ export const TeacherReadMore = ({ teacher }) => {
               </TeacherReviewWrap>
             );
           })}
-         <div style={{ display: 'flex', gap: '8px', marginBottom: "32px" }}>
+         <ul style={{ display: 'flex', flexWrap: "wrap", gap: '8px', marginBottom: "32px" }}>
                   {teacher.levels.map((level, i) => {
                     return (
                       <TeachersLanguages key={i}>{level}</TeachersLanguages>
                     );
                   })}
-                </div>
-            <LoadMoreButton type="button" onClick={()=>handleOpen(teacher)}>Book trial lesson</LoadMoreButton>
+                </ul>
+            <LoadMoreButton style={{margin: "0"}} type="button" onClick={()=>handleOpen(teacher)}>Book trial lesson</LoadMoreButton>
         {isOpen && (
         <TeacherModal
           isOpen={isOpen}

@@ -8,7 +8,7 @@ export const SharedLayout = () => {
   return (
     <SharedWrapper>
       <Header />
-      <main style={{margin: "0 auto"}}>
+      <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

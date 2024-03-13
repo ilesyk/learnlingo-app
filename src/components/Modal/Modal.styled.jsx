@@ -2,16 +2,19 @@ import styled from 'styled-components';
 import { Field } from 'formik';
 
 export const ModalCloseButton = styled.button`
-width: 32px;
-height: 32px;
-position: absolute;
-top: 20px;
-right: 20px;
-cursor: pointer;
-border: none;
-background: transparent;
-outline: none;
-
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  outline: none;
+  &:hover {
+    transform: scale(1.15);
+  }
+  transition: transform 200ms linear;
 `;
 export const ModalHead = styled.h2`
   font-size: 40px;
@@ -60,6 +63,10 @@ export const ModalSubmitButton = styled.button`
   border: transparent;
   background: #f4c550;
   border-radius: 12px;
+  &:is(:hover, :focus) {
+    background-color: #ffdc86;
+  }
+  transition: background-color 200ms linear;
 `;
 
 export const ModalTeacherAvatar = styled.div`
