@@ -1,15 +1,22 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+const { API_KEY,
+  APP_ID,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  PROJECT_ID } = process.env;
+
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDDHYmwZTthb3SwujJx4f9O6y3e8DdLlzQ',
-  authDomain: 'learnlingo-app.firebaseapp.com',
-  databaseURL:
-    'https://learnlingo-app-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'learnlingo-app',
-  storageBucket: 'learnlingo-app.appspot.com',
-  messagingSenderId: '710065332200',
-  appId: '1:710065332200:web:abf88361fe57f3bc020e5d',
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
